@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.dll
+*.pyd
+
+# Caches
+*.idea/
+.vscode/
+*.vs/
+.cache/
+*.egg-info/
+dist/
+build/
+*.sqlite3
+
+# Logs and databases
+*.log
+*.sql
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# Virtual environments
+venv/
+env/
+.venv/
+pip-selfcheck.json
+
+# Local development settings
+*.env
+
+# Compiled Python files
+*.pyc
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Linux/MacOS system files
+.DS_Store

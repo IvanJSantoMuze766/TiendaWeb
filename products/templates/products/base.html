@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tu Tienda{% endblock %}</title>
+    <!-- Estilos Bootstrap y personalizados -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'product_list' %}">Tu Tienda</a>
+        <!-- Botón de alternancia para navegación móvil -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Formulario de búsqueda -->
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <!-- Enlace al carrito de compras -->
+            <div class="nav-item ml-3">
+                <a class="nav-link" href="{% url 'ver_carrito' %}">
+                    <i class="btn-danger bi bi-cart2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de presentación -->
+    <section id="presentacion" class="mt-5 text-center d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-lg-6 mx-auto">
+                    <img src="{% static 'images/logo-redondeado.png' %}" alt="Logo Redondeado" class="img-fluid rounded-circle mb-4" width="150">
+                </div>
+                <!-- Descripción de la tienda -->
+                <div class="col-lg-6 mx-auto">
+                    <h2>Nuestra Historia</h2>
+                    <p>Breve historia sobre tu tienda y lo que la hace especial...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Barra lateral izquierda con categorías y subcategorías -->
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <!-- Lista de categorías -->
+                        <li class="nav-item">
+                            <h5 class="nav-link">Categorías</h5>
+                            <ul class="nav flex-column ml-2">
+                                <!-- Categoría 1 -->
+                                <li class="nav-item">
+                                    <a class="nav-link category" data-toggle="collapse" href="#categoria1">Electrónica</a>
+                                    <!-- Subcategorías de la categoría 1 -->
+                                    <div class="collapse subcategories" id="categoria1">
+                                        <ul class="nav flex-column ml-4">
+                                            <!-- Subcategoría 1 -->
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Smartphones</a>
+                                                <!-- Subcategoría 1 de la subcategoría 1 -->
+                                                <div class="collapse subcategories" id="smartphones">
+                                                    <ul class="nav flex-column ml-4">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="#">iPhone</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" href="#">Samsung</a>
+                                                        </li>
+                                                        <!-- Agrega más subcategorías según sea necesario -->
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <!-- Agrega más subcategorías según sea necesario -->
+                                        </ul>
+                                    </div>
+                                </li>
+                                <!-- Agrega más categorías y subcategorías según sea necesario -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Sección de selección de orden -->
+            <div class="col-md-10">
+                <div class="mb-4">
+                    <h4>Ordenar por:</h4>
+                    <select class="form-select form-select-sm d-inline-block" onchange="location = this.value;">
+                        <option value="?">Seleccionar</option>
+                        <option value="?orden=alfabetico">Alfabéticamente</option>
+                        <option value="?orden=precio_asc">Menor Precio</option>
+                        <option value="?orden=precio_desc">Mayor Precio</option>
+                        <option value="?orden=relevancia">Más Relevante</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <main role="main" class="container-fluid mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <!-- Sección de contacto -->
+    <section id="contacto" class="mt-5">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Tienes preguntas o comentarios? ¡Estamos aquí para ayudarte!</p>
+            <!-- Redes Sociales -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/tutienda" target="_blank" class="btn btn-link"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/tutienda" target="_blank" class="btn btn-link"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/123456789" target="_blank" class="btn btn-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <!-- Correo electrónico -->
+            <p>Envíanos un correo electrónico a <a href="mailto:info@tutienda.com">info@tutienda.com</a>.</p>
+            <!-- Dirección y Google Maps -->
+            <p>Dirección: <a href="https://maps.google.com/?q=Tu+Tienda,+Ciudad" target="_blank">Tu Tienda, Ciudad</a></p>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="mt-4">
+        <p class="text-center">&copy; 2024 Tu Tienda</p>
+        <!-- Enlace a la Política de Devoluciones y Garantías -->
+        <a href="{% url 'politica_devoluciones' %}">Política de Devoluciones y Garantías</a>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>

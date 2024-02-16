@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .cart-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .cart-item p {
+            margin: 5px 0;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    {% if carrito.itemcarrito_set.all %}
+        <div class="cart-items">
+            {% for item in carrito.itemcarrito_set.all %}
+                <div class="cart-item">
+                    <p><strong>{{ item.producto.nombre }}</strong> - Cantidad: {{ item.cantidad }} - Precio: ${{ item.subtotal }}</p>
+                </div>
+            {% endfor %}
+            <p class="total">Total: ${{ carrito.total }}</p>
+        </div>
+    {% else %}
+        <p>No hay productos en el carrito.</p>
+    {% endif %}
+</body>
+</html>

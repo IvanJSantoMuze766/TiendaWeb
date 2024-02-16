@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <!-- Título de la página -->
+        <h2 class="mt-2">Productos</h2>
+
+        <!-- Formulario de búsqueda de productos -->
+        <form method="get" action="{% url 'lista_productos' %}" class="mb-4">
+            {{ busqueda_form.as_p }}
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+
+        <!-- Lista de productos -->
+        <div class="row">
+            {% for producto in products %}
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card">
+                        <!-- Imagen del producto -->
+                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+                        <div class="card-body">
+                            <!-- Nombre del producto -->
+                            <h5 class="card-title">{{ producto.nombre }}</h5>
+                            <!-- Precio del producto -->
+                            <p class="card-text">Precio: ${{ producto.precio }}</p>
+                            <!-- Agrega más detalles según sea necesario -->
+
+                            <!-- Botones de llamada a la acción -->
+                            <a href="{% url 'detalle_producto' producto.id %}" class="btn btn-primary">Ver detalles</a>
+                            <button class="btn btn-success">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Filtros por categoría -->
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <h4>Filtrar por categoría:</h4>
+                <ul class="list-unstyled">
+                    <!-- Enlace para mostrar todos los productos -->
+                    <li><a href="{% url 'lista_productos' %}">Todos</a></li>
+                    <!-- Lista de categorías -->
+                    {% for categoria in categorias %}
+                        <li><a href="{% url 'lista_productos_por_categoria' categoria=categoria %}">{{ categoria }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

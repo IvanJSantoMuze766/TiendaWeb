@@ -1,0 +1,169 @@
+/* Estilos generales */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de la barra de navegación */
+
+.navbar {
+    background-color: #6a0572;
+    color: #ffffff;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.navbar-nav {
+    margin-right: auto;
+}
+
+.navbar-nav a {
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #f9f9f9;
+}
+
+.navbar-toggler-icon {
+    color: #ffffff;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+/* Estilos de la barra lateral */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    background-color: #343a40; /* Fondo oscuro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow-y: auto; /* Permite desplazamiento vertical si hay muchas categorías */
+    transition: width 0.3s ease;
+}
+
+/* Estilos de las categorías */
+
+.sidebar h5,
+.sidebar .nav-link {
+    color: #ffffff;
+}
+
+/* Estilos de las subcategorías */
+
+.subcategories .nav-link {
+    color: #f8f9fa; /* Texto más claro */
+}
+
+/* Transiciones suaves para las subcategorías */
+
+.collapse.subcategories {
+    transition: height 0.3s ease;
+}
+
+/* Estilos de los elementos de lista */
+
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #6a0572;
+    color: #ffffff;
+}
+
+/* Estilos de los detalles del producto */
+
+.product-details {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #dcd3e3;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.product-details h2 {
+    color: #6a0572;
+}
+
+.product-details p {
+    margin-bottom: 10px;
+}
+
+.product-details .btn-primary {
+    background-color: #6a0572;
+    border-color: #6a0572;
+}
+
+.product-details .btn-primary:hover {
+    background-color: #4e035b;
+    border-color: #4e035b;
+}
+
+/* Estilos del pie de página */
+
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #6a0572;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Detalles en color verde agua */
+
+.primary-text {
+    color: #008080;
+}
+
+.link-green {
+    color: #008080;
+    transition: color 0.3s ease;
+}
+
+.link-green:hover {
+    color: #006666;
+}
+
+/* Estilos de los íconos sociales */
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
